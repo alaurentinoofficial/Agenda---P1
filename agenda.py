@@ -55,8 +55,6 @@ def adicionar(descricao, extras):
 
   novaAtividade = ''
 
-  print(prioridadeValida(prioridade))
-
   if data != '' and dataValida(data) : novaAtividade += data + ' '
   if hora != '' and horaValida(hora) : novaAtividade += hora + ' '
   if prioridade != '' and prioridadeValida(prioridade) : novaAtividade += prioridade + ' ' 
@@ -76,7 +74,7 @@ def adicionar(descricao, extras):
 
 # Valida a prioridade.
 def prioridadeValida(pri):
-  return len(pri) == 3 and pri[0] == "(" and pri[2] == ")" and (pri[1] >= "A" and pri[1] <= "Z" or pri[1] >= "a" and pri[1] <= "z")
+  return len(pri) == 3 and pri[0] == "(" and pri[2] == ")" and (pri[1] >= "A" and pri[1] < "Z" or pri[1] >= "a" and pri[1] <= "z")
 
 
 # Valida a hora. Consideramos que o dia tem 24 horas, como no Brasil, ao invés
@@ -192,7 +190,7 @@ def ordenarPorDataHora(itens):
   for item in itens:
     ordem_itens.append( (item, timestamp(item[1][0]), tempoParaMinutos(item[1][1])) )
 
-  ordem_itens = sorted(ordem_itens,  key=lambda x: (x[1], x[2]), reverse=True)
+  ordem_itens = sorted(ordem_itens,  key=lambda x: (x[1], x[2]))
   
   return [x[0] for x in ordem_itens]
 
@@ -252,7 +250,7 @@ def priorizar(index, prioridade):
     todos = listar()
     index = int(index)-1
       
-    if index <= len(todos) and index >= 0:
+    if index < len(todos) and index >= 0:
       todos[index] = (todos[index][1][0], (todos[index][1][1], "(%s)" % prioridade, todos[index][0], todos[index][1][3], todos[index][1][4]))
       salvarTarefas(todos)
       return True
@@ -269,14 +267,18 @@ def priorizar(index, prioridade):
 # projetos. 
 def processarComandos(comandos) :
   if comandos[1] == ADICIONAR:
-    comandos.pop(0) # remove 'agenda.py'
-    comandos.pop(0) # remove 'adicionar'
-    itemParaAdicionar = organizar([' '.join(comandos)])[0]
-    try: 
-      adicionar(itemParaAdicionar[0], itemParaAdicionar[1]) # novos itens não têm prioridade
-    except IOError as err:
-      print("Não foi possível escrever para o arquivo " + TODO_FILE)
-      print(err)
+    if len(comandos) > 2:
+      comandos.pop(0) # remove 'agenda.py'
+      comandos.pop(0) # remove 'adicionar'
+      itemParaAdicionar = organizar([' '.join(comandos)])[0]
+      try: 
+        if not adicionar(itemParaAdicionar[0], itemParaAdicionar[1]):
+          print("É necessário pelo menos uma descrição")
+      except IOError as err:
+        print("Não foi possível escrever para o arquivo " + TODO_FILE)
+        print(err)
+    else:
+      print("É necessário pelo meno uma descrição")
   
   elif comandos[1] == LISTAR:
     todos = listar()

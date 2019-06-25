@@ -1,19 +1,23 @@
-27032019 2035 (A) Reuni√£o com Huguinho, Luizinho e Zezinho. Teste de uma nova atividade @Skype +Pesquisa27032019
-27032019 2034 (A) Teste de uma nova atividade
-27032019 1234 (A) Teste de uma nova atividade
-27032019 (A) Teste de uma nova atividade 2734
-27032019 (A) Teste de uma nova atividade 2734
-23052015 1906 (A) fjslkdfla asdkfjlasd jaskdfj laksd @ jsadhfkjdsa @contexto +projeto
-1230 (A) Primeiro Revisar artigo IST +Service
 (A) Corrigir provas de IF968 +IF968
-1230 (B) Revisar artigo IST +Service
+1230 (A) Primeiro Revisar artigo IST +Service
+23052015 1906 (A) fjslkdfla asdkfjlasd jaskdfj laksd @ jsadhfkjdsa @contexto +projeto
+27032019 (A) Teste de uma nova atividade 2734
+27032019 (A) Teste de uma nova atividade 2734
+27032019 1234 (A) Teste de uma nova atividade
+27032019 2034 (A) Teste de uma nova atividade
+27032019 2035 (A) Reuni√£o com Huguinho, Luizinho e Zezinho. Teste de uma nova atividade @Skype +Pesquisa27032019
 (B) Revisar artigos SBES +Service
 (B) Publicar a especifica√ß√£o do projeto de IF968 terminada. +IF968
 (B) Revisar artigos SBES Education +Service
 (B) Revisar artigos SBES Insightful Ideas +Service
+1230 (B) Revisar artigo IST +Service
 27032019 1234 (c) 2 Teste de uma nova atividade
 (D) Read "Optimizing energy consumption of GUIs in android apps: A multi-objective approach."
 1330 (Z) Revisar artigo IST +Service
-27032019 Teste de uma nova atividade (Ad) 2734
 23052017 0620 Test @Hangouts +UnitTest
-26102017 Comemeora meu anevers·rio @Casa
+(A) Comemeora meu anevers·rio 26102017 @Casa
+26102017 Comemeora meu anevers·rio @ Casa
+26102017 Comemeora meu anevers·rio @ Casa @Github
+27032019 Teste de uma nova atividade (Ad) 2734
+23032019 2459 @contexto +r=presquisa
+23032019 2459 @contexto +r=presquisa
