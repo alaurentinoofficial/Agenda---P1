@@ -1,4 +1,4 @@
-from agenda import organizar, listar, adicionar, remover, ordenarPorDataHora, ordenarPorPrioridade
+from agenda import organizar, listar, adicionar, remover, fazer, ordenarPorDataHora, ordenarPorPrioridade
 
 def test_organizar():
 	lines = [
@@ -44,7 +44,31 @@ def test_remove():
 	todo = listar()
 	return remover(str(len(todo)))
 
+def test_fazer():
+	if adicionar('Test de feito', ('23052017', '0620', '', '@Hangouts', '+UnitTest')):
+		todo = listar()
+		result = fazer(str(len(todo)))
+
+		if result:
+			lines = []
+			with open('done.txt', 'r') as file:
+				lines = file.readlines()[:-1]
+				file.close()
+			
+			with open('done.txt', 'w') as file:
+				file.writelines(lines)
+				file.close()
+			
+			return result
+		else:
+			test_remove()
+		
+
+	
+	return False
+
 if __name__ == "__main__":
 	print('organizar()   ->   ', 'OK' if test_organizar() else "FAILED")
 	print('adicionar()   ->   ', 'OK' if test_save() else "FAILED")
 	print('remover()   ->   ', 'OK' if test_remove() else "FAILED")
+	print('fazer()   ->   ', 'OK' if test_fazer() else "FAILED")

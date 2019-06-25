@@ -232,7 +232,7 @@ def remover(index):
     todos = listar()
     index = int(index)-1
 
-    if index <= len(todos) and index >= 0:
+    if index < len(todos) and index >= 0:
       todo = todos[index]
       todos.pop(index)
       salvarTarefas(todos)

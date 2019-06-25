@@ -15,3 +15,4 @@
 (D) Read "Optimizing energy consumption of GUIs in android apps: A multi-objective approach."
 1330 (Z) Revisar artigo IST +Service
 27032019 Teste de uma nova atividade (Ad) 2734
+23052017 0620 Test @Hangouts +UnitTest
