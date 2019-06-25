@@ -26,7 +26,7 @@ Exemplo:
 ```
 $ python ./agenda.py l
 
-1 - 27/03/2019 20:35 (A) ReuniÃ£o com Huguinho, Luizinho e Zezinho. Teste de uma nova atividade @Skype +Pesquisa27032019
+1 - 27/03/2019 20:35 (A) Reunião com Huguinho, Luizinho e Zezinho. Teste de uma nova atividade @Skype +Pesquisa27032019
 2 - 27/03/2019 20:34 (A) Teste de uma nova atividade
 3 - 27/03/2019 12:34 (A) Teste de uma nova atividade
 4 - 27/03/2019 (A) Teste de uma nova atividade 2734
