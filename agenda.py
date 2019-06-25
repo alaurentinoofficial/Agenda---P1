@@ -141,16 +141,15 @@ def organizar(linhas):
     l = l.strip() # remove espaços em branco e quebras de linha do começo e do fim
     tokens = l.split() # quebra o string em palavras
 
-    # Processa os tokens um a um, verificando se são as partes da atividade.
-    # Por exemplo, se o primeiro token é uma data válida, deve ser guardado
-    # na variável data e posteriormente removido a lista de tokens. Feito isso,
-    # é só repetir o processo verificando se o primeiro token é uma hora. Depois,
-    # faz-se o mesmo para prioridade. Neste ponto, verifica-se os últimos tokens
-    # para saber se são contexto e/ou projeto. Quando isso terminar, o que sobrar
-    # corresponde à descrição. É só transformar a lista de tokens em um string e
-    # construir a tupla com as informações disponíveis. 
+    for item in tokens:
+      if dataValida(item): data = item
+      elif horaValida(item): hora = item
+      elif prioridadeValida(item): pri = item
+      elif contextoValido(item): contexto = item
+      elif projetoValido(item): projeto = item
+      else: desc += item + ' '
 
-    ################ COMPLETAR
+    desc = desc[:-1]
 
     itens.append((desc, (data, hora, pri, contexto, projeto)))
 
