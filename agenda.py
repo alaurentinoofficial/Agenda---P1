@@ -177,10 +177,10 @@ def listar():
 
 
 def timestamp(date):
-  return time.mktime(datetime.datetime.strptime(date, "%d%m%Y").timetuple()) if dataValida(date) else 0
+  return time.mktime(datetime.datetime.strptime(date, "%d%m%Y").timetuple()) if dataValida(date) else 10000000000000
 
 def tempoParaMinutos(time):
-  return int(time[:2]) * 60 + int(time[2:]) if horaValida(time) else 0
+  return int(time[:2]) * 60 + int(time[2:]) if horaValida(time) else 10000000000000
 
 
 # (descrição, (data, hora, prioridade, contexto, projeto))

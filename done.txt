@@ -1,3 +1,5 @@
 23052017 (A) Ler artigo IST. +Serviço
 (Z) sei la o que colocar @github +agenda
 (F) sei la o que colocar @github +agenda
+(A) Corrigir provas de IF968 +IF968
+(F) 2508

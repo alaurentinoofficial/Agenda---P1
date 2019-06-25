@@ -1,4 +1,3 @@
-(A) Corrigir provas de IF968 +IF968
 1230 (A) Primeiro Revisar artigo IST +Service
 23052015 1906 (A) fjslkdfla asdkfjlasd jaskdfj laksd @ jsadhfkjdsa @contexto +projeto
 26102017 (A) Comemeora meu aneversário @Casa
@@ -14,7 +13,6 @@
 1230 (B) Revisar artigo IST +Service
 27032019 1234 (c) 2 Teste de uma nova atividade
 (D) Read "Optimizing energy consumption of GUIs in android apps: A multi-objective approach."
-(F) 2508
 1330 (Z) Revisar artigo IST +Service
 l
 23052017 0620 Test @Hangouts +UnitTest
