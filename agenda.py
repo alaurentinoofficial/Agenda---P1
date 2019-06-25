@@ -74,7 +74,7 @@ def adicionar(descricao, extras):
 
 # Valida a prioridade.
 def prioridadeValida(pri):
-  return len(pri) == 3 and pri[0] == "(" and pri[2] == ")" and (pri[1] >= "A" and pri[1] < "Z" or pri[1] >= "a" and pri[1] <= "z")
+  return len(pri) == 3 and pri[0] == "(" and pri[2] == ")" and (pri[1].upper() >= "A" and pri[1].upper() <= "Z")
 
 
 # Valida a hora. Consideramos que o dia tem 24 horas, como no Brasil, ao invés
@@ -258,7 +258,6 @@ def priorizar(index, prioridade):
   return None
 
 
-
 # Esta função processa os comandos e informações passados através da linha de comando e identifica
 # que função do programa deve ser invocada. Por exemplo, se o comando 'adicionar' foi usado,
 # isso significa que a função adicionar() deve ser invocada para registrar a nova atividade.
@@ -282,6 +281,14 @@ def processarComandos(comandos) :
   
   elif comandos[1] == LISTAR:
     todos = listar()
+
+    if len(comandos) > 2:
+      if prioridadeValida(comandos[2]):
+        todos = filter(lambda x: x[1][2] == comandos[2].upper(), todos)
+      elif contextoValido(comandos[2]):
+        todos = filter(lambda x: x[1][3] == comandos[2], todos)
+      elif projetoValido(comandos[2]):
+        todos = filter(lambda x: x[1][4] == comandos[2], todos)
 
     for i, todo in enumerate(todos):
       data = "{}/{}/{}".format(todo[1][0][:2], todo[1][0][2:4], todo[1][0][4:]) if dataValida(todo[1][0]) else ""
