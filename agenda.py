@@ -174,6 +174,10 @@ def listar():
 
   return itens
 
+
+def timestamp(date):
+  return time.mktime(datetime.datetime.strptime(date, "%d%m%Y").timetuple()) if dataValida(date) else 0
+
 def ordenarPorDataHora(itens):
 
   ################ COMPLETAR
