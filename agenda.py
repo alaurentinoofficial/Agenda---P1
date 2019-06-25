@@ -164,9 +164,15 @@ def organizar(linhas):
 # determinado projeto; (vi) atividades de determinado dia (data específica, hoje ou amanhã). Isso não
 # é uma das tarefas básicas do projeto, porém. 
 def listar():
+  linhas = []
+  
+  with open(TODO_FILE) as file:
+    for linha in file:
+      linhas.append(linha)
 
-  ################ COMPLETAR
-  return 
+    itens = organizar(linhas)
+
+  return itens
 
 def ordenarPorDataHora(itens):
 
