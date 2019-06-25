@@ -241,11 +241,17 @@ def remover(index):
 # prioridade é uma letra entre A a Z, onde A é a mais alta e Z a mais baixa.
 # num é o número da atividade cuja prioridade se planeja modificar, conforme
 # exibido pelo comando 'l'. 
-def priorizar(num, prioridade):
+def priorizar(index, prioridade):
+  if soDigitos(index) and prioridade >= "A" and prioridade <= "Z":
+    todos = listar()
+    index = int(index)-1
+      
+    if index <= len(todos) and index >= 0:
+      todos[index] = (todos[index][1][0], (todos[index][1][1], "(%s)" % prioridade, todos[index][0], todos[index][1][3], todos[index][1][4]))
+      salvarTarefas(todos)
+      return True
 
-  ################ COMPLETAR
-
-  return 
+  return None
 
 
 
