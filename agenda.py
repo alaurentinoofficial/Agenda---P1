@@ -181,11 +181,16 @@ def timestamp(date):
 def tempoParaMinutos(time):
   return int(time[:2]) * 60 + int(time[2:]) if horaValida(time) else 0
 
+# (descrição, (data, hora, prioridade, contexto, projeto))
 def ordenarPorDataHora(itens):
+  ordem_itens = []
 
-  ################ COMPLETAR
+  for item in itens:
+    ordem_itens.append( (item, timestamp(item[1][0]), tempoParaMinutos(item[1][1])) )
 
-  return itens
+  ordem_itens = sorted(ordem_itens,  key=lambda x: (x[1], x[2]), reverse=True)
+  
+  return [x[0] for x in ordem_itens]
    
 def ordenarPorPrioridade(itens):
 
