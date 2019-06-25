@@ -55,6 +55,8 @@ def adicionar(descricao, extras):
 
   novaAtividade = ''
 
+  print(prioridadeValida(prioridade))
+
   if data != '' and dataValida(data) : novaAtividade += data + ' '
   if hora != '' and horaValida(hora) : novaAtividade += hora + ' '
   if prioridade != '' and prioridadeValida(prioridade) : novaAtividade += prioridade + ' ' 
