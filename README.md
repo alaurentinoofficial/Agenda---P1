@@ -21,6 +21,23 @@ $ python ./agenda.py a Terminar de completar o README.md (A) 25062019 0930
 ```
 $ python ./agenda.py l
 ```
+
+Exemplo:
+```
+$ python ./agenda.py l
+
+1 - 27/03/2019 20:35 (A) ReuniÃ£o com Huguinho, Luizinho e Zezinho. Teste de uma nova atividade @Skype +Pesquisa27032019
+2 - 27/03/2019 20:34 (A) Teste de uma nova atividade
+3 - 27/03/2019 12:34 (A) Teste de uma nova atividade
+4 - 27/03/2019 (A) Teste de uma nova atividade 2734
+5 - 27/03/2019 (A) Teste de uma nova atividade 2734
+6 - 23/05/2015 19:06 (A) fjslkdfla asdkfjlasd jaskdfj laksd @ jsadhfkjdsa @contexto +projeto
+7 - 12:30 (A) Primeiro Revisar artigo IST +Service
+8 - (A) Corrigir provas de IF968 +IF968
+9 - 12:30 (B) Revisar artigo IST +Service
+10 - (B) Revisar artigos SBES +Service
+[...]
+```
 <br/>
 
 ## Priorizar uma tarefa

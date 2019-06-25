@@ -285,10 +285,10 @@ def processarComandos(comandos) :
 
       prioridade = todo[1][2].upper()
 
-      if prioridade == "(A)": prioridade = cor(prioridade, BLUE)
-      elif prioridade == "(B)": prioridade = cor(prioridade, RED)
-      elif prioridade == "(C)": prioridade = cor(prioridade, YELLOW)
-      elif prioridade == "(D)": prioridade = cor(prioridade, GREEN)
+      # if prioridade == "(A)": prioridade = cor(prioridade, BLUE)
+      # elif prioridade == "(B)": prioridade = cor(prioridade, RED)
+      # elif prioridade == "(C)": prioridade = cor(prioridade, YELLOW)
+      # elif prioridade == "(D)": prioridade = cor(prioridade, GREEN)
 
       print(re.sub(' +', ' ', "{} - {} {} {} {} {} {}".format(i+1, data, hora, prioridade, todo[0], todo[1][3], todo[1][4])).strip() )
 
