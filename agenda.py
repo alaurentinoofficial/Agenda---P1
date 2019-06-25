@@ -207,7 +207,18 @@ def fazer(num):
 
   ################ COMPLETAR
 
-  return 
+  return
+
+
+def salvarTarefas(todos):
+  linhas = []
+  
+  for todo in todos:
+      linhas.append( re.sub(' +', ' ',"%s %s %s %s %s %s" % (todo[1][0], todo[1][1], todo[1][2], todo[0], todo[1][3], todo[1][4])).strip() + "\n" )
+  
+  with open(TODO_FILE, 'w') as file:
+    file.writelines(linhas)
+    file.close()
 
 def remover():
 
