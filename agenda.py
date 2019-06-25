@@ -203,11 +203,16 @@ def ordenarPorPrioridade(itens):
   
   return [x[0] for x in ordem_itens]
 
-def fazer(num):
+def fazer(index):
+  todo = remover(index)
 
-  ################ COMPLETAR
-
-  return
+  if todo != None:
+    with open(ARCHIVE_FILE, 'a') as file:
+      file.write(re.sub(' +', ' ',"%s %s %s %s %s %s" % (todo[1][0], todo[1][1], todo[1][2], todo[0], todo[1][3], todo[1][4])).strip() + "\n")
+      file.close()
+      return todo
+  
+  return None
 
 
 def salvarTarefas(todos):
@@ -220,11 +225,18 @@ def salvarTarefas(todos):
     file.writelines(linhas)
     file.close()
 
-def remover():
+def remover(index):
+  if soDigitos(index):
+    todos = listar()
+    index = int(index)-1
+      
+    if index <= len(todos) and index >= 0:
+      todo = todos[index]
+      todos.pop(index)
+      salvarTarefas(todos)
+      return todo
 
-  ################ COMPLETAR
-
-  return
+  return None
 
 # prioridade é uma letra entre A a Z, onde A é a mais alta e Z a mais baixa.
 # num é o número da atividade cuja prioridade se planeja modificar, conforme
