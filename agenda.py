@@ -1,4 +1,7 @@
+import re
 import sys
+import time
+import datetime
 
 TODO_FILE = 'todo.txt'
 ARCHIVE_FILE = 'done.txt'
@@ -25,6 +28,9 @@ LISTAR = 'l'
 
 def printCores(texto, cor) :
   print(cor + texto + RESET)
+
+def cor(texto, cor) :
+  return cor + texto + RESET
   
 
 # Adiciona um compromisso aa agenda. Um compromisso tem no minimo
@@ -45,29 +51,30 @@ def adicionar(descricao, extras):
   if descricao  == '' :
     return False
   
+  data, hora, prioridade, contexto, projeto = extras
 
-  ################ COMPLETAR
+  novaAtividade = ''
 
+  if data != '' and dataValida(data) : novaAtividade += data + ' '
+  if hora != '' and horaValida(hora) : novaAtividade += hora + ' '
+  if prioridade != '' and prioridadeValida(prioridade) : novaAtividade += prioridade + ' ' 
+
+  novaAtividade += descricao
+
+  if contexto != '' and contextoValido(contexto) : novaAtividade += ' ' + contexto
+  if projeto != '' and projetoValido(projeto) : novaAtividade += ' ' + projeto
 
   # Escreve no TODO_FILE. 
-  try: 
-    fp = open(TODO_FILE, 'a')
-    fp.write(novaAtividade + "\n")
-    fp.close()
-  except IOError as err:
-    print("Não foi possível escrever para o arquivo " + TODO_FILE)
-    print(err)
-    return False
+  fp = open(TODO_FILE, 'a')
+  fp.write(novaAtividade + "\n")
+  fp.close()
 
   return True
 
 
 # Valida a prioridade.
 def prioridadeValida(pri):
-
-  ################ COMPLETAR
-  
-  return False
+  return len(pri) == 3 and pri[0] == "(" and pri[2] == ")" and (pri[1] >= "A" and pri[1] <= "Z" or pri[1] >= "a" and pri[1] <= "z")
 
 
 # Valida a hora. Consideramos que o dia tem 24 horas, como no Brasil, ao invés
@@ -76,31 +83,25 @@ def horaValida(horaMin) :
   if len(horaMin) != 4 or not soDigitos(horaMin):
     return False
   else:
-    ################ COMPLETAR
-    return True
+    return int(horaMin[:2]) >= 0 and int(horaMin[:2]) <= 23 and int(horaMin[2:]) >= 0 and int(horaMin[2:]) <= 59
 
 # Valida datas. Verificar inclusive se não estamos tentando
 # colocar 31 dias em fevereiro. Não precisamos nos certificar, porém,
 # de que um ano é bissexto. 
 def dataValida(data) :
-
-  ################ COMPLETAR
-
-  return False
+  try:
+      datetime.datetime.strptime(data, '%d%m%Y')
+      return True
+  except ValueError:
+      return False
 
 # Valida que o string do projeto está no formato correto. 
 def projetoValido(proj):
-
-  ################ COMPLETAR
-
-  return False
+  return len(proj) >= 2 and proj[0] == "+" and (" " not in proj)
 
 # Valida que o string do contexto está no formato correto. 
 def contextoValido(cont):
-
-  ################ COMPLETAR
-
-  return False
+  return len(cont) >= 2 and cont[0] == "@" and (" " not in cont)
 
 # Valida que a data ou a hora contém apenas dígitos, desprezando espaços
 # extras no início e no fim.
@@ -172,7 +173,7 @@ def listar():
 
     itens = organizar(linhas)
 
-  return itens
+  return ordenarPorPrioridade(ordenarPorDataHora(itens))
 
 
 def timestamp(date):
@@ -180,6 +181,7 @@ def timestamp(date):
 
 def tempoParaMinutos(time):
   return int(time[:2]) * 60 + int(time[2:]) if horaValida(time) else 0
+
 
 # (descrição, (data, hora, prioridade, contexto, projeto))
 def ordenarPorDataHora(itens):
@@ -192,7 +194,6 @@ def ordenarPorDataHora(itens):
   
   return [x[0] for x in ordem_itens]
 
-# (descrição, (data, hora, prioridade, contexto, projeto))
 def ordenarPorPrioridade(itens):
   ordem_itens = []
 
@@ -202,17 +203,6 @@ def ordenarPorPrioridade(itens):
   ordem_itens = sorted(ordem_itens,  key=lambda x: x[1])
   
   return [x[0] for x in ordem_itens]
-
-def fazer(index):
-  todo = remover(index)
-
-  if todo != None:
-    with open(ARCHIVE_FILE, 'a') as file:
-      file.write(re.sub(' +', ' ',"%s %s %s %s %s %s" % (todo[1][0], todo[1][1], todo[1][2], todo[0], todo[1][3], todo[1][4])).strip() + "\n")
-      file.close()
-      return todo
-  
-  return None
 
 
 def salvarTarefas(todos):
@@ -224,6 +214,18 @@ def salvarTarefas(todos):
   with open(TODO_FILE, 'w') as file:
     file.writelines(linhas)
     file.close()
+
+
+def fazer(index):
+  todo = remover(index)
+
+  if todo != None:
+    with open(ARCHIVE_FILE, 'a') as file:
+      file.write(re.sub(' +', ' ',"%s %s %s %s %s %s" % (todo[1][0], todo[1][1], todo[1][2], todo[0], todo[1][3], todo[1][4])).strip() + "\n")
+      file.close()
+      return todo
+  
+  return None
 
 def remover(index):
   if soDigitos(index):
@@ -237,6 +239,8 @@ def remover(index):
       return todo
 
   return None
+
+
 
 # prioridade é uma letra entre A a Z, onde A é a mais alta e Z a mais baixa.
 # num é o número da atividade cuja prioridade se planeja modificar, conforme
@@ -266,38 +270,41 @@ def processarComandos(comandos) :
     comandos.pop(0) # remove 'agenda.py'
     comandos.pop(0) # remove 'adicionar'
     itemParaAdicionar = organizar([' '.join(comandos)])[0]
-    # itemParaAdicionar = (descricao, (prioridade, data, hora, contexto, projeto))
-    adicionar(itemParaAdicionar[0], itemParaAdicionar[1]) # novos itens não têm prioridade
+    try: 
+      adicionar(itemParaAdicionar[0], itemParaAdicionar[1]) # novos itens não têm prioridade
+    except IOError as err:
+      print("Não foi possível escrever para o arquivo " + TODO_FILE)
+      print(err)
+  
   elif comandos[1] == LISTAR:
-    return    
-    ################ COMPLETAR
+    todos = listar()
+
+    for i, todo in enumerate(todos):
+      data = "{}/{}/{}".format(todo[1][0][:2], todo[1][0][2:4], todo[1][0][4:]) if dataValida(todo[1][0]) else ""
+      hora = "{}:{}".format(todo[1][1][:2], todo[1][1][2:]) if horaValida(todo[1][1]) else ""
+
+      prioridade = todo[1][2].upper()
+
+      if prioridade == "(A)": prioridade = cor(prioridade, BLUE)
+      elif prioridade == "(B)": prioridade = cor(prioridade, RED)
+      elif prioridade == "(C)": prioridade = cor(prioridade, YELLOW)
+      elif prioridade == "(D)": prioridade = cor(prioridade, GREEN)
+
+      print(re.sub(' +', ' ', "{} - {} {} {} {} {} {}".format(i+1, data, hora, prioridade, todo[0], todo[1][3], todo[1][4])).strip() )
 
   elif comandos[1] == REMOVER:
-    return    
-
-    ################ COMPLETAR    
+    if len(comandos) != 3 or remover(comandos[2]) == None:
+      print("Tarefa invalida.")
 
   elif comandos[1] == FAZER:
-    return    
-
-    ################ COMPLETAR
+    if len(comandos) != 3 or fazer(comandos[2]) == None:
+      print("Tarefa invalida.")
 
   elif comandos[1] == PRIORIZAR:
-    return    
-
-    ################ COMPLETAR
+    if len(comandos) != 4 or not priorizar(comandos[2], comandos[3][0].upper()):
+      print("Tarefa ou Prioridade invalidas")
 
   else :
     print("Comando inválido.")
-    
-  
-# sys.argv é uma lista de strings onde o primeiro elemento é o nome do programa
-# invocado a partir da linha de comando e os elementos restantes são tudo que
-# foi fornecido em sequência. Por exemplo, se o programa foi invocado como
-#
-# python3 agenda.py a Mudar de nome.
-#
-# sys.argv terá como conteúdo
-#
-# ['agenda.py', 'a', 'Mudar', 'de', 'nome']
+
 processarComandos(sys.argv)
