@@ -231,7 +231,7 @@ def remover(index):
   if soDigitos(index):
     todos = listar()
     index = int(index)-1
-      
+
     if index <= len(todos) and index >= 0:
       todo = todos[index]
       todos.pop(index)
@@ -307,4 +307,5 @@ def processarComandos(comandos) :
   else :
     print("Comando inválido.")
 
-processarComandos(sys.argv)
+if __name__ == "__main__":
+  processarComandos(sys.argv)
