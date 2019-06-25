@@ -191,12 +191,17 @@ def ordenarPorDataHora(itens):
   ordem_itens = sorted(ordem_itens,  key=lambda x: (x[1], x[2]), reverse=True)
   
   return [x[0] for x in ordem_itens]
-   
+
+# (descrição, (data, hora, prioridade, contexto, projeto))
 def ordenarPorPrioridade(itens):
+  ordem_itens = []
 
-  ################ COMPLETAR
-
-  return itens
+  for item in itens:
+    ordem_itens.append( (item, ord(item[1][2][1].upper()) if prioridadeValida(item[1][2]) else ord("Z") + 1) )
+  
+  ordem_itens = sorted(ordem_itens,  key=lambda x: x[1])
+  
+  return [x[0] for x in ordem_itens]
 
 def fazer(num):
 
