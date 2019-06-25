@@ -1,13 +1,18 @@
-Comer menos açúcar 
-23052017 1030 Reunião com Huguinho, Luizinho e Zezinho. @Skype +Pesquisa
-(B) Terminar a especificação do projeto de IF968. +IF968
-(B) Publicar a especificação do projeto de IF968 terminada. +IF968
+27032019 2035 (A) Reunião com Huguinho, Luizinho e Zezinho. Teste de uma nova atividade @Skype +Pesquisa27032019
+27032019 2034 (A) Teste de uma nova atividade
+27032019 1234 (A) Teste de uma nova atividade
+27032019 (A) Teste de uma nova atividade 2734
+27032019 (A) Teste de uma nova atividade 2734
+23052015 1906 (A) fjslkdfla asdkfjlasd jaskdfj laksd @ jsadhfkjdsa @contexto +projeto
+1230 (A) Primeiro Revisar artigo IST +Service
 (A) Corrigir provas de IF968 +IF968
-23052017 (A) Ler artigo IST. +Serviço
-2330 Dormir cedo @Casa
-(B) Revisar artigo IST +Service
+1230 (B) Revisar artigo IST +Service
 (B) Revisar artigos SBES +Service
+(B) Publicar a especificação do projeto de IF968 terminada. +IF968
 (B) Revisar artigos SBES Education +Service
 (B) Revisar artigos SBES Insightful Ideas +Service
-(B) Revisar artigos SBLP +Service
+27032019 1234 (c) 2 Teste de uma nova atividade
 (D) Read "Optimizing energy consumption of GUIs in android apps: A multi-objective approach."
+1330 (Z) Revisar artigo IST +Service
+27032019 Teste de uma nova atividade (Ad) 2734
+2330 Dormir cedo @Casa
