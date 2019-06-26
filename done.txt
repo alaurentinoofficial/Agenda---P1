@@ -3,3 +3,6 @@
 (F) sei la o que colocar @github +agenda
 (A) Corrigir provas de IF968 +IF968
 (F) 2508
+25062019 1040 (D) Estudar para MD @UFPE +Prova
+01072019 1600 (B) Fazer qualquer coisa
+ 

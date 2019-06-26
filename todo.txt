@@ -1,23 +1,5 @@
-1230 (A) Primeiro Revisar artigo IST +Service
-23052015 1906 (A) fjslkdfla asdkfjlasd jaskdfj laksd @ jsadhfkjdsa @contexto +projeto
-26102017 (A) Comemeora meu anevers·rio @Casa
-27032019 (A) Teste de uma nova atividade 2734
-27032019 (A) Teste de uma nova atividade 2734
-27032019 1234 (A) Teste de uma nova atividade
-27032019 2034 (A) Teste de uma nova atividade
-27032019 2035 (A) Reuni√£o com Huguinho, Luizinho e Zezinho. Teste de uma nova atividade @Skype +Pesquisa27032019
-(B) Revisar artigos SBES +Service
-(B) Publicar a especifica√ß√£o do projeto de IF968 terminada. +IF968
-(B) Revisar artigos SBES Education +Service
-(B) Revisar artigos SBES Insightful Ideas +Service
-1230 (B) Revisar artigo IST +Service
-27032019 1234 (c) 2 Teste de uma nova atividade
-(D) Read "Optimizing energy consumption of GUIs in android apps: A multi-objective approach."
-1330 (Z) Revisar artigo IST +Service
-l
-23052017 0620 Test @Hangouts +UnitTest
-26102017 Comemeora meu anevers·rio @ Casa
-26102017 Comemeora meu anevers·rio @ Casa @Github
-23032019 2459 @contexto +r=presquisa
-23032019 2459 @contexto +r=presquisa
-27032019 Teste de uma nova atividade (Ad) 2734
+27062019 (A) Apresentar administracao @Slide +Prova
+01072019 1700 (B) Fazer prova de P1 @Programacao +Prova
+1230 (Z) 30022018 Nao existe @Casa +Pesquisa
+2356 (D) adsfasdf
+Realizar apresentacao de SI @SI +Pesquisa

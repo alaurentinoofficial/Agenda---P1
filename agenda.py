@@ -265,6 +265,9 @@ def priorizar(index, prioridade):
 # usando o método strip(). Além disso, realiza a validação de horas, datas, prioridades, contextos e
 # projetos. 
 def processarComandos(comandos) :
+  if len(comandos) < 2:
+    return print("Comando inválido.")
+  
   if comandos[1] == ADICIONAR:
     if len(comandos) > 2:
       comandos.pop(0) # remove 'agenda.py'
