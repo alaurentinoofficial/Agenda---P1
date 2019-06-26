@@ -1,5 +1,5 @@
 27062019 (A) Apresentar administracao @Slide +Prova
+1230 (C) 30022018 Nao existe @Casa +Pesquisa
 01072019 1700 (B) Fazer prova de P1 @Programacao +Prova
-1230 (Z) 30022018 Nao existe @Casa +Pesquisa
 2356 (D) adsfasdf
 Realizar apresentacao de SI @SI +Pesquisa
